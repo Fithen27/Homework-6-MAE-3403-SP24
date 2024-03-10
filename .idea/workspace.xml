@@ -1,8 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7302af62-c369-4432-b42d-3f1a325628af" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    <list default="true" id="7302af62-c369-4432-b42d-3f1a325628af" name="Changes" comment="Homework #6 Collaboration">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HW6_1_OOP.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Steam_stem.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sat_water_table.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/superheated_water_table.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW6(1).py" beforeDir="false" afterPath="$PROJECT_DIR$/HW6_2_OOP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW6(2).py" beforeDir="false" afterPath="$PROJECT_DIR$/Rankine_stem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW6(3).py" beforeDir="false" afterPath="$PROJECT_DIR$/ResistorNetwork.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,24 +23,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2dSnvu6BXivdf8vR0jtFCeRd15b" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
-    <configuration name="HW6(1)" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+    <configuration name="HW6_1_OOP" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="Homework #6" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -42,7 +53,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\austi\Source\MAESP2024\Homework #6\HW6(1).py" />
+      <option name="SCRIPT_NAME" value="C:\Users\austi\Source\MAESP2024\Homework #6\HW6_1_OOP.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -68,17 +79,30 @@
       <option name="presentableId" value="Default" />
       <updated>1710010581045</updated>
     </task>
+    <task id="LOCAL-00001" summary="Homework #6 Collaboration">
+      <option name="closed" value="true" />
+      <created>1710010728022</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1710010728022</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Homework #6 Collaboration" />
+    <option name="LAST_COMMIT_MESSAGE" value="Homework #6 Collaboration" />
   </component>
 </project>

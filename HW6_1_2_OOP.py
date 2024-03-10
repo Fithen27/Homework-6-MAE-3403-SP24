@@ -56,14 +56,14 @@ class ResistorNetwork():
         :param Txt: [string] the lines of the text file
         :return: a resistor object
         """
-        R = #JES MISSING CODE  # instantiate a new resistor object
+        R = Resistor()  # instantiate a new resistor object
         N += 1  # <Resistor> was detected, so move to next line in Txt
-        txt = #JES MISSING code  # retrieve line from Txt and make it lower case using Txt[N].lower()
+        txt = Txt[N].lower()
         while "resistor" not in txt:
             if "name" in txt:
-                R.Name = #JES MISSING CODE
+                R.Name = txt.split('=')[1].strip()
             if "resistance" in txt:
-                R.Resistance = #JES MISSING CODE
+                R.Resistance = float(txt.split('=')[1].strip())
             N+=1
             txt=Txt[N].lower()
 
@@ -123,12 +123,12 @@ class ResistorNetwork():
         :return: a list of the currents in the resistor network
         """
         # need to set the currents to that Kirchoff's laws are satisfied
-        i0 = #JES MISSING CODE  #define an initial guess for the currents in the circuit
+        i0 = [0, 0, 0] #define an initial guess for the currents in the circuit
         i = fsolve(self.GetKirchoffVals,i0)
         # print output to the screen
-        print("I1 = {:0.1f}".format(i[0]))
-        print("I2 = {:0.1f}".format(i[1]))
-        print("I3 = {:0.1f}".format(i[2]))
+        print("I1 = {:0.1f}A".format(i[0]))
+        print("I2 = {:0.1f}A".format(i[1]))
+        print("I3 = {:0.1f}A".format(i[2]))
         return i
 
     def GetKirchoffVals(self,i):
@@ -218,9 +218,9 @@ class Resistor():
         :param i: current in amps
         :param name: name of resistor by alphabetically ordered pair of node names
         """
-        #JES Missing Code = R
-        #JES Missing Code = i
-        #JES Missing Code = name
+        self.Resistance = R
+        self.Current = i
+        self.Name = name
     #endregion
 
     #region methods/functions
@@ -231,6 +231,28 @@ class Resistor():
         """
         return self.Current*self.Resistance
     #endregion
+
+class ResistorNetwork2(ResistorNetwork):
+    def __init__(self):
+        super().__init__()
+
+    def AnalyzeCircuit(self):
+        i0 = [0.0] * 3  # Initial guess for the currents in the circuit
+        i = fsolve(self.GetKirchoffVals, i0)
+        print("RN2 I1 = {:0.1f}A".format(i[0]))
+        print("RN2 I2 = {:0.1f}A".format(i[1]))
+        print("RN2 I3 = {:0.1f}A".format(i[2]))
+        return i
+
+    def GetKirchoffVals(self, i):
+        self.GetResistorByName('ad').Current = i[0]
+        self.GetResistorByName('bc').Current = i[0]
+        self.GetResistorByName('cd').Current = i[2]
+        self.GetResistorByName('ce').Current = i[1]
+        Node_c_Current = sum([i[0], i[1], -i[2]])
+        KVL = self.GetLoopVoltageDrops()
+        KVL.append(Node_c_Current)
+        return KVL
 
 class VoltageSource():
     #region constructor
@@ -253,9 +275,12 @@ def main():
     This program solves for the unknown currents in the circuit of the homework assignment.
     :return: nothing
     """
-    Net =  # JES MISSING CODE  #Instantiate a resistor network object
-    Net.  # JES MISSING CODE #call the function from Net that builds the resistor network from a text file
+    Net = ResistorNetwork()  # Instantiate a resistor network object
+    Net.BuildNetworkFromFile("ResistorNetwork2.txt")  # call the function from Net that builds the resistor network from a text file
+    Net2 = ResistorNetwork2()
+    Net2.BuildNetworkFromFile("ResistorNetwork2.txt")
     IVals = Net.AnalyzeCircuit()
+    IVals2 = Net2.AnalyzeCircuit()
 # endregion
 
 # region function calls

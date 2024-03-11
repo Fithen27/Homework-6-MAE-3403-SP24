@@ -28,17 +28,12 @@ Resistance = 4
 </Resistor>
 
 <Resistor>
-Name = de
+Name = parallel
 Resistance = 5
 </Resistor>
 
-<Resistor>
-Name = df
-Resistance = 0
-</Resistor>
-
 <Source>
-Name = ef
+Name = de
 Type = Voltage
 Value = 32
 </Source>
@@ -57,9 +52,4 @@ Nodes = a,b,c,d
 <Loop>
 Name = L2
 Nodes = c,d,e
-</Loop>
-
-<Loop>
-Name = L3
-Nodes = d,f,e
 </Loop>

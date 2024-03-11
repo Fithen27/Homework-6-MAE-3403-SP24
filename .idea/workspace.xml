@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7302af62-c369-4432-b42d-3f1a325628af" name="Changes" comment="Homework #6 Collaboration">
+      <change afterPath="$PROJECT_DIR$/HW6_1_OOP.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ResistorNetwork.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW6_1_OOP.py" beforeDir="false" afterPath="$PROJECT_DIR$/HW6_1_2_OOP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HW6_2_OOP.py" beforeDir="false" afterPath="$PROJECT_DIR$/HW6_2_OOP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResistorNetwork.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ResistorNetwork2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HW6_1_2_OOP.py" beforeDir="false" afterPath="$PROJECT_DIR$/HW6_1_2_OOP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Rankine_stem.py" beforeDir="false" afterPath="$PROJECT_DIR$/Rankine_stem.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResistorNetwork2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ResistorNetwork2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Steam_stem.py" beforeDir="false" afterPath="$PROJECT_DIR$/Steam_stem.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,12 +21,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Fithen27"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Fithen27&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -44,8 +47,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.HW6_1_2_OOP.executor": "Run",
+    "Python.HW6_1_OOP.executor": "Run",
     "Python.HW6_2_OOP.executor": "Run",
     "Python.Rankine_stem.executor": "Run",
+    "Python.Steam_stem.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master"
@@ -107,7 +112,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710039401298</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Homework #6 Collaboration">
+      <option name="closed" value="true" />
+      <created>1710043280421</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1710043280421</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

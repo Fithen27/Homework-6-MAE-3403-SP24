@@ -3,6 +3,7 @@ import numpy as np
 import math
 from scipy.optimize import fsolve
 import random as rnd
+from scipy.optimize import root
 # endregion
 
 # region class definitions
@@ -14,13 +15,13 @@ class Fluid():
         :param mu: dynamic viscosity in Pa*s -> (kg*m/s^2)*(s/m^2) -> kg/(m*s)
         :param rho: density in kg/m^3
         '''
-        self.mu= mu  # simply make a copy of the value in the argument as a class property
-        self.rho= rho  # simply make a copy of the value in the argument as a class property
-        self.nu= mu/rho # calculate the kinematic viscosity in units of m^2/s
+        self.mu=mu   # simply make a copy of the value in the argument as a class property
+        self.rho=rho  # simply make a copy of the value in the argument as a class property
+        self.nu=self.mu / self.rho # calculate the kinematic viscosity in units of m^2/s
     #endregion
 class Node():
     #region constructor
-    def __init__(self, Name='a', Pipes=[], ExtFlow=0):
+    def __init__(self, Name='a', Pipes=['b,c'], ExtFlow=+60):
         '''
         A node in a pipe network.
         :param Name: name of the node
@@ -46,7 +47,7 @@ class Node():
     #endregion
 class Loop():
     #region constructor
-    def __init__(self, Name='A', Pipes=[]):
+    def __init__(self, Name='A', Pipes=['a,b,e,d,c']):
         '''
         Defines a loop in a pipe network.  Note: the pipes must be listed in order.  The traversal of a pipe loop
         will begin at the start node of Pipe[0] and move in the positive direction of that pipe.  Hence, loops
@@ -107,7 +108,7 @@ class Pipe():
         Calculate average velocity in the pipe for volumetric flow self.Q
         :return:the average velocity in m/s
         '''
-        self.vel= self.Q/self.A  # the average velocity is Q/A (be mindful of units)
+        self.vel= self.Q / self.A # the average velocity is Q/A (be mindful of units)
         return self.vel
 
     def Re(self):
@@ -115,7 +116,7 @@ class Pipe():
         Calculate the reynolds number under current conditions.
         :return:
         '''
-        self.reynolds= self.fluid.rho * self.vel * self.d / self.fluid.mu # Re=rho*V*d/mu, be sure to use V() so velocity is updated.
+        self.reynolds= self.fluid.rho * self.V() * self.d / self.fluid.mu # Re=rho*V*d/mu, be sure to use V() so velocity is updated.
         return self.reynolds
 
     def FrictionFactor(self):
@@ -159,7 +160,7 @@ class Pipe():
         '''
         g = 9.81  # m/s^2
         ff = self.FrictionFactor()
-        hl = ff * self.length * self.fluid.rho * self.vel ** 2 / (2 * self.d)  # calculate the head loss in m of water
+        hl = (ff *  self.length * self.vel ** 2) / (2 * g * self.d) # calculate the head loss in m of water
         return hl
 
     def getFlowHeadLoss(self, s):
@@ -237,7 +238,7 @@ class PipeNetwork():
             """
             #update the flow rate in each pipe object
             for i in range(len(self.pipes)):
-                self.pipes[i].Q=q[i]  # set volumetric flow rate from input argument q
+                self.pipes[i].Q= q[i]  # set volumetric flow rate from input argument q
             #calculate the net flow rate for the node objects
             # note:  when flow rates in pipes are correct, the net flow into each node should be zero.
             L= self.getNodeFlowRates()  # call the getNodeFlowRates function of this class
@@ -246,7 +247,7 @@ class PipeNetwork():
             L+= self.getLoopHeadLosses()  # call the getLoopHeadLosses function of this class
             return L
         #using fsolve to find the flow rates
-        FR=fsolve(fn,Q0)
+        FR=root(fn,Q0)
         return FR
 
     def getNodeFlowRates(self):
@@ -327,15 +328,14 @@ def main():
     :return:
     '''
     #instantiate a Fluid object to define the working fluid as water
-    water= Fluid()
+    water = Fluid(mu=0.00089, rho=1000)  #
     roughness = 0.00025  # in meters
-
-    #instantiate a new PipeNetwork object
-    PN= PipeNetwork(fluid=water)
-    #add Pipe objects to the pipe network (see constructor for Pipe class)
-    PN.pipes.append(Pipe('a','b',250, 300, roughness, water))
-    PN.pipes.append(Pipe('a','c',100, 200, roughness, water))
-    PN.pipes.append(Pipe('b','e',100, 200, roughness, water))
+    # instantiate a new PipeNetwork object
+    PN = PipeNetwork()  #
+    # add Pipe objects to the pipe network (see constructor for Pipe class)
+    PN.pipes.append(Pipe('a', 'b', 250, 300, roughness, water))
+    PN.pipes.append(Pipe('a', 'c', 100, 200, roughness, water))
+    PN.pipes.append(Pipe('b', 'e', 100, 200, roughness, water))
     PN.pipes.append(Pipe('c','d',125, 200, roughness, water))
     PN.pipes.append(Pipe('c','f',100, 150, roughness, water))
     PN.pipes.append(Pipe('d','e',125, 200, roughness, water))
